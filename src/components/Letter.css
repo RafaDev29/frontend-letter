@@ -1,0 +1,140 @@
+/* Importar fuentes más elegantes y cursivas */
+@import url('https://fonts.googleapis.com/css2?family=Italianno&family=Noto+Serif:ital@0;1&family=Tangerine:wght@700&display=swap');
+
+/* Los estilos del sobre se mantienen igual */
+.envelope {
+  width: 24rem;
+  height: 24rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.envelope-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.envelope-body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fbb6ce;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: #f687b3;
+  border-radius: 0.5rem 0.5rem 0 0;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top;
+  transition: transform 0.5s ease;
+  z-index: 20;
+}
+
+.envelope.open .flap {
+  transform: rotateX(-180deg);
+}
+
+/* Estilos actualizados para la carta */
+.letter {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 16rem; /* Más pequeña */
+  height: 0;
+  transform: translate(-50%, -50%) scale(0);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 30;
+}
+
+.letter.visible {
+  width: 20rem; /* Tamaño máximo más pequeño */
+  height: 28rem;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.letter-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.letter-paper {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 2rem;
+  position: relative;
+  /* Bordes antiguos decorativos */
+  border: 1px solid rgba(160, 120, 95, 0.2);
+  /* Efecto de papel antiguo */
+  background-image: 
+    radial-gradient(at 50% 50%, rgba(255,255,255,0.8) 0%, rgba(255,250,245,0.8) 100%),
+    repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(160, 120, 95, 0.1) 24px, rgba(160, 120, 95, 0.1) 25px);
+}
+
+.letter-header {
+  font-family: 'Italianno', cursive;
+  font-size: 3.5rem;
+  color: #8b4513;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+
+.letter-text {
+  font-family: 'Noto Serif', serif;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #5d4037;
+  text-align: center;
+  white-space: pre-line;
+  /* Efecto de escritura a mano */
+  letter-spacing: 0.5px;
+}
+
+.letter-signature {
+  font-family: 'Tangerine', cursive;
+  font-size: 2rem;
+  color: #8b4513;
+  text-align: right;
+  margin-top: 1.5rem;
+}
+
+/* Estilos del contenedor principal */
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fed7e2, #fbb6ce, #f687b3);
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Reset de estilos generales */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
